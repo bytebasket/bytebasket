@@ -24,15 +24,16 @@ export default async function Home() {
           shopping lists, pantry management, and personalized recipe
           suggestions.
         </p>
-        {/* <Link
-          href="/signup"
-          className="flex items-center gap-2 rounded-full bg-black px-8 py-4 text-lg font-semibold text-white transition-all hover:bg-gray-800 dark:bg-white dark:text-black"
-        >
-          Get Started
-        </Link> */}
-        <Link href="/signup" className={buttonVariants({ variant: "outline" })}>
-          Get Started
+        
+        <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+        <Link href="/login" className={buttonVariants({ variant: "outline" })}>
+          Log In
         </Link>
+        <Link href="/signup" className={buttonVariants({ variant: "outline" })}>
+          Sign Up
+        </Link>
+        </div>
+        
       </section>
 
       {/* Features Grid */}
