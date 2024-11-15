@@ -35,7 +35,17 @@ export default function RootLayout({
         <div className="min-h-screen flex flex-col bg-gray-100">
       <header className="bg-blue-400 text-blue-900 py-2 shadow-md">
         <div className="container mx-auto flex justify-between items-center px-4">
-          <h1 className="text-2xl font-bold">BYTEBASKET</h1>
+          {/* Logo Image */}
+          <div className="flex items-center">
+            <Image
+              src="/Logo.png" // Replace with the actual path to your logo in the public folder
+              alt="ByteBasket Logo"
+              width={200}  // Adjust width as needed
+              height={50} // Adjust height as needed
+              className="mr-2"
+            />
+        
+          </div>
           {/* put the bugur menu here */}
         </div>
       </header>

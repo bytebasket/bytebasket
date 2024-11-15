@@ -1,17 +1,27 @@
-import Link from "next/link";
+"use client";
 
+import Link from "next/link";
+import { useRouter } from "next/navigation";  // Import useRouter
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, 
+         CardContent, 
+        CardDescription, 
+        CardHeader, 
+        CardTitle } 
+        from "@/components/ui/card";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export default function Login() {
+  const router = useRouter();  // Initialize the router
+
+  // Click handler for login
+  const handleLogin = () => {
+    // Add any authentication logic here if needed
+    router.push("/homepage");  // Navigate to homepage
+  };
+
   return (
     <Card className="mx-auto max-w-sm">
       <CardHeader>
@@ -24,12 +34,7 @@ export default function Login() {
         <div className="grid gap-4">
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="m@example.com"
-              required
-            />
+            <Input id="email" type="email" placeholder="m@example.com" required />
           </div>
           <div className="grid gap-2">
             <div className="flex items-center">
@@ -40,7 +45,7 @@ export default function Login() {
             </div>
             <Input id="password" type="password" required />
           </div>
-          <Button type="submit" className="w-full">
+          <Button type="button" onClick={handleLogin} className="w-full">
             Login
           </Button>
           <Button variant="outline" className="w-full">
@@ -56,4 +61,4 @@ export default function Login() {
       </CardContent>
     </Card>
   );
-} 
+}

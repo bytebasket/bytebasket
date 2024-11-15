@@ -1,4 +1,4 @@
-import { Home, ShoppingCart } from "lucide-react";
+import { Home, ShoppingCart, Refrigerator, Receipt, History, Settings, User, UserPlus, Link } from "lucide-react";
 
 import {
   Sidebar,
@@ -14,7 +14,7 @@ import {
 const items = [
   {
     title: "Home",
-    url: "/dashboard",
+    url: "/",
     icon: Home,
   },
   {
@@ -22,14 +22,53 @@ const items = [
     url: "/dashboard/shopping-list",
     icon: ShoppingCart,
   },
+  {
+    title: "Pantry",
+    url: "/dashboard/pantry",
+    icon: Refrigerator,
+  },
+  {
+    title: "History",
+    url: "/dashboard/shopping-history",
+    icon: History,
+  },
+  {
+    title: "Receipt",
+    url: "/dashboard/receipts",
+    icon: Receipt,
+  },
+  {
+    title: "Settings",
+    url: "/dashboard/settings",
+    icon: Settings,
+  },
+  {
+    title: "Account",
+    url: "/dashboard/account",
+    icon: User,
+  },
+  {
+    title: "Invite",
+    url: "/dashboard/invite",
+    icon: UserPlus,
+  },
 ];
 
 export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent>
+        {/* Logo Section */}
+        <div className="flex items-center justify-center p-4">
+          <img
+            src="/Logo.png"
+            alt="App Logo"
+            className="w-480 h-auto object-contain"
+          />
+        </div>
+        
+        {/* Main Sidebar Content */}
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
