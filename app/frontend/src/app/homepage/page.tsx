@@ -4,8 +4,8 @@ import { AlertCircleIcon, RefrigeratorIcon, ShoppingCartIcon } from "lucide-reac
 
 const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">Hello Sunshine!</h1>
+    <div className="min-h-screen bg-gray-100 backgroundIMG">
+      <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">Welcom Back Sunshine!</h1>
 
       <div className="main-content px-6">
         <section className="flex justify-center items-center">
@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
             
             <Card className="p-8 bg-gradient-to-br from-pink-300 via-red-200 to-yellow-300 text-gray-800 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300">
               <CardHeader>
-                <CardTitle className="text-2xl text-center mb-4">Alert</CardTitle>
+                <CardTitle className="text-2xl text-center mb-4">Heads up!</CardTitle>
                 <AlertCircleIcon size="3em" className="mx-auto mb-4 text-red-600" />
                 <CardDescription className="text-lg">
                   <ul className="list-disc space-y-2">

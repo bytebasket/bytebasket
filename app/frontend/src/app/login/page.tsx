@@ -12,6 +12,7 @@ import { Card,
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { ChevronLeft } from "lucide-react";
 
 export default function Login() {
   const router = useRouter();  // Initialize the router
@@ -23,10 +24,11 @@ export default function Login() {
   };
 
   return (
-    <Card className="mx-auto max-w-sm">
+    <Card className="mx-auto max-w-sm mt-24">
       <CardHeader>
-        <CardTitle className="text-2xl">Login</CardTitle>
-        <CardDescription>
+      <Link href="/" ><ChevronLeft /> </Link> {/*back to landing page*/}
+        <CardTitle className="text-2xl text-center">Sign In</CardTitle>
+        <CardDescription className="text-center">
           Enter your email and password to access your account.
         </CardDescription>
       </CardHeader>
@@ -46,14 +48,14 @@ export default function Login() {
             <Input id="password" type="password" required />
           </div>
           <Button type="button" onClick={handleLogin} className="w-full">
-            Login
+          Sign In
           </Button>
           <Button variant="outline" className="w-full">
-            Login with Google
+          Sign In with Google
           </Button>
         </div>
         <div className="mt-4 text-center text-sm">
-          Don&apos;t have an account?{" "}
+          Need an new account?{" "}
           <Link href="/signup" className="underline">
             Sign up
           </Link>

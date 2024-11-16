@@ -1,4 +1,4 @@
-import { Home, ShoppingCart, Refrigerator, Receipt, History, Settings, User, UserPlus, Link } from "lucide-react";
+import { Home, ShoppingCart, Refrigerator, Receipt, History, Settings, User, UserPlus, LogOut  } from "lucide-react";
 
 import {
   Sidebar,
@@ -14,7 +14,7 @@ import {
 const items = [
   {
     title: "Home",
-    url: "/",
+    url: "/homepage",
     icon: Home,
   },
   {
@@ -51,6 +51,11 @@ const items = [
     title: "Invite",
     url: "/dashboard/invite",
     icon: UserPlus,
+  },
+  {
+    title: "Sign out",
+    url: "/",
+    icon: LogOut,
   },
 ];
 

@@ -12,14 +12,14 @@ import {
 export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col">
-      <header className="sticky top-0 z-40 border-b border-transparent transition duration-200 ease-in-out animate-header-slide">
+      <header className=" bg-white sticky top-0 z-40 border-b border-transparent transition duration-200 ease-in-out animate-header-slide">
         <div className="mx-auto w-full max-w-7xl px-52">
           <div className="flex items-center justify-between transition duration-500 ease-in-out md:flex">
             <div className="flex lg:w-[255px]">
               <Image
                 src="/Logo.png"
                 alt="ByteBasket Logo"
-                width={200}
+                width={250}
                 height={50}
                 className="mr-2"
               />
@@ -44,7 +44,7 @@ export default async function Home() {
 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center px-4 py-32 text-center">
-        <div className="text-center">
+        <div className="text-center ">
           <h1 className="mb-6 text-6xl font-bold tracking-tight">
             Your Smart Kitchen
             <span className="bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
@@ -58,21 +58,13 @@ export default async function Home() {
             recipe suggestions.
           </h2>
         </div>
-
-        <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-          <Link
-            href="/login"
-            className={buttonVariants({ variant: "outline" })}
-          >
-            Log In
-          </Link>
           <Link
             href="/signup"
             className={buttonVariants({ variant: "default" })}
           >
             Get Started
           </Link>
-        </div>
+      
       </section>
 
       {/* Features Grid */}

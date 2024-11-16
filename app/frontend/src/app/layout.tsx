@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { ReactNode } from "react";
-import Link from "next/link";
-import Image from "next/image";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,6 +33,4 @@ export default function RootLayout({
     </html>
   );
 }
-interface LayoutProps {
-  children: ReactNode;
-}
+
