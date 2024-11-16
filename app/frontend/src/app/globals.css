@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: "Lucida Handwriting",cursive;
+  font-family: "Font-mono",cursive;
   background-image: url('/background.png');
   background-size: cover;
   background-position: center;

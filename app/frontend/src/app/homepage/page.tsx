@@ -5,7 +5,7 @@ import { AlertCircleIcon, RefrigeratorIcon, ShoppingCartIcon } from "lucide-reac
 const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100 backgroundIMG">
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">Welcom Back Sunshine!</h1>
+      <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">Welcome Back Sunshine!</h1>
 
       <div className="main-content px-6">
         <section className="flex justify-center items-center">

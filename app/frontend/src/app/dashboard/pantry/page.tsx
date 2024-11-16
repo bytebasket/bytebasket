@@ -1,14 +1,14 @@
 import EditableTableLayout from "@/components/layout";
 
-export default function ShoppingList() {
+export default function PantryList() {
   return (
     <EditableTableLayout
-      title="Make Your Shopping List"
+      title="What's in Your Pantry?"
       columns={[
         { header: "Select", accessor: "selected", type: "checkbox" },
         { header: "Item Name", accessor: "itemName", type: "text", placeholder: "Enter item name" },
         { header: "Amount", accessor: "amount", type: "text", placeholder: "Enter amount" },
-        { header: "Section", accessor: "section", type: "text", placeholder: "Enter section" },
+        { header: "Expiration Date", accessor: "expirationDate", type: "date" },
       ]}
     />
   );
