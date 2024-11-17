@@ -19,8 +19,9 @@ const ProfilePage: React.FC = () => {
   });
 
   return (
+    <main className="flex min-h-screen flex-col">
     <div className="min-h-screen  bg-gray-100/50 justify-center items-center">
-      <div className=" px-6 ">
+      <div className="mx-auto w-full max-w-7xl px-52">
         <section>
             <Card className="p-10 mt-20">
               <CardHeader className="justify-center items-center">
@@ -42,6 +43,7 @@ const ProfilePage: React.FC = () => {
         </section>
       </div>
     </div>
+    </main>
   );
 };
 
