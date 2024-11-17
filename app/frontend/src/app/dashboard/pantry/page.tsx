@@ -10,6 +10,7 @@ export default function PantryList() {
         { header: "Amount", accessor: "amount", type: "text", placeholder: "Enter amount" },
         { header: "Expiration Date", accessor: "expirationDate", type: "date" },
       ]}
+      
     />
   );
 }

@@ -34,13 +34,8 @@ const items = [
   },
   {
     title: "Receipt",
-    url: "/dashboard/receipts",
+    url: "/dashboard/receipt",
     icon: Receipt,
-  },
-  {
-    title: "Settings",
-    url: "/dashboard/settings",
-    icon: Settings,
   },
   {
     title: "Account",
@@ -51,6 +46,11 @@ const items = [
     title: "Invite",
     url: "/dashboard/invite",
     icon: UserPlus,
+  },
+  {
+    title: "Settings",
+    url: "/dashboard/settings",
+    icon: Settings,
   },
   {
     title: "Sign out",
