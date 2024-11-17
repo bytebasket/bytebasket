@@ -1,94 +1,49 @@
-"use client";
-import React from "react";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+import { Item, columns } from "./columns"
+import { DataTable } from "./data-table"
 
-const invoices = [
-  {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
-  },
-  {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
-  },
-];
-
-export default function ShoppingHistoryPage() {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-semibold mb-6">Shopping History</h1>
-      <ShoppingHistoryTable />
-    </div>
-  );
+async function getData(): Promise<Item[]> {
+  // Fetch data from your API here.
+//   id: string
+//   itemName: string
+//   amount: string
+//   description: string
+//   price: number
+//   date: string 
+  return [
+    {
+        id: "728ed52f",
+        itemName: "Apple",
+        amount: "3 lb",
+        description: "bought from superstor",
+        price: 30,
+        date: "2024-11-19",
+    },
+    {
+        id: "728ed52g",
+        itemName: "Banana",
+        amount: "1 lb",
+        description: "bought from costco",
+        price: 10,
+        date: "2024-11-10",
+    },
+    {
+        id: "728ed52h",
+        itemName: "KIWI",
+        amount: "2 lb",
+        description: "bought from superstor",
+        price: 5,
+        date: "2024-11-11",
+    },
+    // ...
+  ]
 }
 
-// The TableDemo component as a named export
-function ShoppingHistoryTable() {
+export default async function shoppingHistoryPage() {
+  const data = await getData()
+
   return (
-    <Table>
-      <TableCaption>A list of your recent invoices.</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[100px]">Item Name</TableHead>
-          <TableHead>discription</TableHead>
-          <TableHead>Amount</TableHead>
-          <TableHead className="text-right">Price</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {invoices.map((invoice) => (
-          <TableRow key={invoice.invoice}>
-            <TableCell className="font-medium">{invoice.invoice}</TableCell>
-            <TableCell>{invoice.paymentStatus}</TableCell>
-            <TableCell>{invoice.paymentMethod}</TableCell>
-            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-      
-    </Table>
-  );
+    <div className="container mx-auto py-10 bg-gray-100/50 min-h-screen">
+      <DataTable columns={columns} data={data} />
+    </div>
+  )
 }
