@@ -42,16 +42,16 @@ const items = [
     url: "/dashboard/account",
     icon: User,
   },
-  {
-    title: "Invite",
-    url: "/dashboard/invite",
-    icon: UserPlus,
-  },
-  {
-    title: "Settings",
-    url: "/dashboard/settings",
-    icon: Settings,
-  },
+  // {
+  //   title: "Invite",
+  //   url: "/dashboard/invite",
+  //   icon: UserPlus,
+  // },
+  // {
+  //   title: "Settings",
+  //   url: "/dashboard/settings",
+  //   icon: Settings,
+  // },
   {
     title: "Sign out",
     url: "/",

@@ -113,7 +113,7 @@ const EditableTableLayout: React.FC<EditableTableLayoutProps> = ({
       </table>
       <button
         onClick={addRow}
-        className="mt-4 px-3 bg-blue-500 text-white rounded hover:bg-blue-600 text-2xl"
+        className="mt-4 px-3 bg-green-900 text-white rounded hover:bg-blue-500 text-2xl"
       >
         +
       </button>

@@ -1,114 +1,133 @@
 "use client";
+
 import React, { useState } from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
-const ProfilePage: React.FC = () => {
-  // Sample user data
-  const [user, setUser] = useState({
-    name: "John Doe",
-    email: "johndoe@example.com",
-    password: "**********", // Initially, the password is hidden
-    profilePic: "", // Replace with your image or link
-  });
+const AccountDetailsPage = () => {
+  const [fullName, setFullName] = useState("Bruce Ni");
+  const [email, setEmail] = useState("test@tesgt.com");
+  const [password, setPassword] = useState("");
+  const [retypePassword, setRetypePassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
-  // States for editing email and password
-  const [newEmail, setNewEmail] = useState(user.email);
-  const [newPassword, setNewPassword] = useState(user.password);
-
-  // To toggle password visibility
-  const [passwordVisible, setPasswordVisible] = useState(false);
-
-  // Handle changes to email
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNewEmail(e.target.value);
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    setter: React.Dispatch<React.SetStateAction<string>>
+  ) => {
+    setter(e.target.value);
   };
 
-  // Handle changes to password
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNewPassword(e.target.value);
-  };
-
-  // Toggle password visibility
-  const togglePasswordVisibility = () => {
-    setPasswordVisible(!passwordVisible);
-  };
-
-  // Handle save (e.g., update user profile)
   const handleSaveChanges = () => {
-    // Simulate saving the updated email and password
-    setUser({
-      ...user,
-      email: newEmail,
-      password: newPassword,
-    });
-    alert("Profile updated!");
+    if (password !== retypePassword) {
+      setPasswordError("Passwords do not match.");
+      return;
+    }
+
+    setPasswordError("");
+    alert("Changes saved!");
   };
+
+  const isSaveDisabled =
+    password !== retypePassword || password === "" || retypePassword === "";
 
   return (
-    <main className="flex min-h-screen flex-col">
-      <div className="min-h-screen bg-gray-100/50 justify-center items-center">
-        <div className="mx-auto w-full max-w-7xl px-52">
-          <section>
-            <Card className="p-10 mt-20">
-              <CardHeader className="justify-center items-center">
-                <CardTitle className="text-2xl text-center mb-4">
-                  <Avatar className="mb-4 size-20">
-                    <AvatarFallback>JD</AvatarFallback>
-                  </Avatar>
-                </CardTitle>
-                <CardDescription className="text-lg text-center">
-                  <ul>
-                    <li>
-                      <strong>Name:</strong> {user.name}
-                    </li>
-                    <li>
-                      <strong>Email Address:</strong>{" "}
-                      <input
-                        type="email"
-                        value={newEmail}
-                        onChange={handleEmailChange}
-                        className="border p-1 rounded mt-2"
-                      />
-                    </li>
-                    <li>
-                      <strong>Password:</strong>{" "}
-                      <input
-                        type={passwordVisible ? "text" : "password"}
-                        value={newPassword}
-                        onChange={handlePasswordChange}
-                        className="border p-1 rounded mt-2"
-                      />
-                      <button
-                        onClick={togglePasswordVisibility}
-                        className="ml-2 text-blue-500"
-                      >
-                        {passwordVisible ? "Hide" : "Show"}
-                      </button>
-                    </li>
-                  </ul>
-                </CardDescription>
-              </CardHeader>
+    <div className="min-h-screen bg-[#F0F9F6] flex flex-col">
+      {/* Header */}
+      <header className="bg-[#A1EEBD] shadow-md py-4 flex justify-center items-center">
+        {/* The div tag issue is fixed below */}
+        <div className="h-6 w-6 text-green-900 mr-2"></div>
+        <h1 className="text-xl font-bold">Account Details</h1>
+      </header>
 
-              <div className="mt-4 flex justify-center">
-                <button
-                  onClick={handleSaveChanges}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-md"
-                >
-                  Save Changes
-                </button>
-              </div>
-            </Card>
-          </section>
+      {/* Main Content */}
+      <main className="flex-grow flex justify-center items-center p-6">
+        <div className="w-full max-w-4xl bg-white p-6 rounded-lg shadow-lg">
+          <table className="min-w-full border-collapse border border-gray-300 bg-white/70">
+            <tbody>
+              {/* Full Name */}
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 bg-[#A1EEBD]/50 text-left">
+                  Full Name
+                </th>
+                <td className="border border-gray-300 px-4 py-2">
+                  <input
+                    type="text"
+                    value={fullName}
+                    onChange={(e) => handleChange(e, setFullName)}
+                    className="w-full px-2 py-1 border border-gray-300 rounded"
+                    disabled
+                  />
+                </td>
+              </tr>
+              {/* Email */}
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 bg-[#A1EEBD]/50 text-left">
+                  Email Address
+                </th>
+                <td className="border border-gray-300 px-4 py-2">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => handleChange(e, setEmail)}
+                    className="w-full px-2 py-1 border border-gray-300 rounded bg-gray-100 text-black cursor-not-allowed"
+                    disabled
+                  />
+                </td>
+              </tr>
+              {/* Password */}
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 bg-[#A1EEBD]/50 text-left">
+                  New Password
+                </th>
+                <td className="border border-gray-300 px-4 py-2">
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => handleChange(e, setPassword)}
+                    className="w-full px-2 py-1 border border-gray-300 rounded"
+                  />
+                </td>
+              </tr>
+              {/* Retype Password */}
+              <tr>
+                <th className="border border-gray-300 px-4 py-2 bg-[#A1EEBD]/50 text-left">
+                  Retype Password
+                </th>
+                <td className="border border-gray-300 px-4 py-2">
+                  <input
+                    type="password"
+                    value={retypePassword}
+                    onChange={(e) => handleChange(e, setRetypePassword)}
+                    className="w-full px-2 py-1 border border-gray-300 rounded"
+                  />
+                </td>
+              </tr>
+              {/* Password Error */}
+              {passwordError && (
+                <tr>
+                  <td colSpan={2} className="text-sm text-red-500 px-4 py-2">
+                    {passwordError}
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+          <div className="flex justify-end mt-4">
+            <button
+              onClick={handleSaveChanges}
+              disabled={isSaveDisabled}
+              className={`${
+                isSaveDisabled
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-green-900 hover:bg-blue-500"
+              } text-white px-6 py-2 rounded-lg`}
+            >
+              Save Changes
+            </button>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 };
 
-export default ProfilePage;
+export default AccountDetailsPage;
