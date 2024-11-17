@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
         <section className="flex justify-center items-center">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8 max-w-7xl mx-auto">
             
-            <Card className="p-8 bg-gradient-to-br from-pink-300 via-red-200 to-yellow-300 text-gray-800 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300">
+            <Card className="p-8 bg-gradient-to-br from-pink-300 via-red-200 to-yellow-300 text-black rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300">
               <CardHeader>
                 <CardTitle className="text-2xl text-center mb-4">Heads up!</CardTitle>
                 <AlertCircleIcon size="3em" className="mx-auto mb-4 text-red-600" />
@@ -24,7 +24,7 @@ const HomePage: React.FC = () => {
               </CardHeader>
             </Card>
 
-            <Card className="p-8 bg-gradient-to-br from-green-200 to-teal-300 text-gray-800 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300">
+            <Card className="p-8 bg-gradient-to-br from-green-200 to-teal-300 text-black rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300">
               <CardHeader>
                 <CardTitle className="text-2xl text-center mb-4">What's in my Cart?</CardTitle>
                 <ShoppingCartIcon size="3em" className="mx-auto mb-4 text-green-600" />
@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
               </CardHeader>
             </Card>
 
-            <Card className="p-8 bg-gradient-to-br from-blue-200 to-purple-300 text-gray-800 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300">
+            <Card className="p-8 bg-gradient-to-br from-blue-200 to-purple-300 text-black rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300">
               <CardHeader>
                 <CardTitle className="text-2xl text-center mb-4">What's in my Pantry?</CardTitle>
                 <RefrigeratorIcon size="3em" className="mx-auto mb-4 text-blue-600" />
