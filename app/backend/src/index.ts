@@ -1,19 +1,14 @@
 import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { logger } from "hono/logger";
+import { usersRoute } from "./routes/users";
 
 const app = new Hono();
 app.use(logger());
 
-app.get("/", (c) => {
-  return c.text("Hello Hono!");
-});
+const apiRoutes = app.basePath("/api").route("/users", usersRoute);
 
-app.get("/hello", (c) => {
-  return c.text("From Bruce!");
-});
-
-const port = 3000;
+const port = 3001;
 console.log(`Server is running on http://localhost:${port}`);
 
 serve({
