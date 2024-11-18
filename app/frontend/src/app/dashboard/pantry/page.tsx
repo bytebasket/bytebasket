@@ -3,7 +3,7 @@ import EditableTableLayout from "@/components/layout";
 export default function PantryList() {
   return (
     <EditableTableLayout
-      title="What's in Your Pantry?"
+      title="Your Pantry"
       columns={[
         { header: "Select", accessor: "selected", type: "checkbox" },
         { header: "Item Name", accessor: "itemName", type: "text", placeholder: "Enter item name" },

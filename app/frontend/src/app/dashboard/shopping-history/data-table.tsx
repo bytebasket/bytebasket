@@ -72,9 +72,9 @@ export function DataTable<TData, TValue>({
   });
 
   return (
-    <div className="p-4">
-        <div className="flex items-center justify-center  mb-8">
-        <h1 className=" text-2xl font-bold">Purchase history</h1>
+    <div className="px-4">
+        <div className="flex items-center justify-center">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">Purchase history</h1>
         </div>
          <div className="flex items-center py-4 space-x-3 justify-end">
         <Input
@@ -120,7 +120,7 @@ export function DataTable<TData, TValue>({
       </div>
       <div className="rounded-md border">
         <Table>
-          <TableHeader>
+          <TableHeader className="bg-[#A1EEBD]/50">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
@@ -138,7 +138,7 @@ export function DataTable<TData, TValue>({
               </TableRow>
             ))}
           </TableHeader>
-          <TableBody>
+          <TableBody className="bg-white/50">
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow

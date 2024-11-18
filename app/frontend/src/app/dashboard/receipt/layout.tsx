@@ -7,12 +7,12 @@ type ReceiptLayoutProps = {
 
 const ReceiptLayout: React.FC<ReceiptLayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen bg-[#F0F9F6] flex flex-col">
-      {/* Header */}
-      <header className="bg-[#A1EEBD] shadow-md py-4 flex justify-center items-center">
-        <ReceiptText className="h-6 w-6 text-green-900 mr-2" />
-        <h1 className="text-2xl font-bold text-green-900">Receipt Manager</h1>
-      </header>
+    <div className="min-h-screen bg-[#F0F9F6]/50 flex flex-col">
+      
+      <div className="flex justify-center p-4 py-10">
+        <h1 className="text-4xl font-bold text-gray-800 mb-12">Receipt Manager</h1>
+      </div>
+      
 
       {/* Main Content */}
       <main className="flex-grow flex justify-center items-center p-6">

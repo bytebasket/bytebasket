@@ -57,8 +57,12 @@ const EditableTableLayout: React.FC<EditableTableLayoutProps> = ({
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4 text-center">{title}</h1>
+    <div className="p-4 py-10min-h-screen bg-gray-100/50 p-4  py-10">
+      <div className="flex items-center justify-center">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">
+        {title}
+        </h1>
+        </div>
       <table className="min-w-full border-collapse border border-gray-300">
         <thead>
           <tr>

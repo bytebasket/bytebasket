@@ -3,7 +3,7 @@ import EditableTableLayout from "@/components/layout";
 export default function ShoppingList() {
   return (
     <EditableTableLayout
-      title="Make Your Shopping List"
+      title="Shopping List"
       columns={[
         { header: "Select", accessor: "selected", type: "checkbox" },
         { header: "Item Name", accessor: "itemName", type: "text", placeholder: "Enter item name" },

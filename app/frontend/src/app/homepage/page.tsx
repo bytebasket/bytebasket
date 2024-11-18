@@ -13,11 +13,12 @@ import {
 
 const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-100/50">
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">
-        Welcome Back Sunshine!
-      </h1>
-
+    <div className="min-h-screen bg-gray-100/50 p-4  py-10">
+      <div className="flex items-center justify-center">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">
+          Welcome Back Sunshine!
+        </h1>
+      </div>
       <div className="main-content px-6">
         <section className="flex justify-center items-center">
           <div className="grid grid-rows-3 grid-flow-col gap-4 md:grid-cols-3 lg:gap-8 max-w-7xl mx-auto">
