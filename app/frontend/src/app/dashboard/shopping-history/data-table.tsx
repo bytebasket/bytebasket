@@ -16,6 +16,12 @@ import {
 } from "@tanstack/react-table";
 
 import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
+import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
@@ -52,6 +58,8 @@ export function DataTable<TData, TValue>({
   );
   //select function
   const [rowSelection, setRowSelection] = React.useState({});
+  const [cart, setCart] = React.useState<TData[]>([]); // State for cart items
+
   const table = useReactTable({
     data,
     columns,
@@ -63,6 +71,7 @@ export function DataTable<TData, TValue>({
     getFilteredRowModel: getFilteredRowModel(),
     onColumnVisibilityChange: setColumnVisibility,
     onRowSelectionChange: setRowSelection,
+    
     state: {
       sorting,
       columnFilters,
@@ -71,12 +80,23 @@ export function DataTable<TData, TValue>({
     },
   });
 
+  // Function to add selected items to the cart
+  const addSelectedItemsToCart = () => {
+    const selectedRows = table.getFilteredSelectedRowModel().rows;
+    const selectedItems = selectedRows.map((row) => row.original);
+    setCart(selectedItems);
+    
+    console.log("Cart Items:", [...cart, ...selectedItems]);
+  };
+
   return (
     <div className="px-4">
-        <div className="flex items-center justify-center">
-        <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">Purchase history</h1>
-        </div>
-         <div className="flex items-center py-4 space-x-3 justify-end">
+      <div className="flex items-center justify-center">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-12">
+          Purchase history
+        </h1>
+      </div>
+      <div className="flex items-center py-4 space-x-3 justify-end">
         <Input
           placeholder="Filter Item Name..."
           value={
@@ -113,10 +133,49 @@ export function DataTable<TData, TValue>({
               })}
           </DropdownMenuContent>
         </DropdownMenu>
-        {/*add selected item to shop list*/}
-        <Button variant="outline" size="sm">
-          {table.getFilteredSelectedRowModel().rows.length} <ShoppingCart />
-        </Button>
+        {/* add selected item to shop list */}
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="outline" size="sm">
+              Add {table.getFilteredSelectedRowModel().rows.length} to Cart{" "}
+              <ShoppingCart />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-80">
+            <div className="grid gap-4">
+              <div className="space-y-2">
+                <h4 className="font-medium leading-none">Item in cart</h4>
+                <p className="text-sm text-muted-foreground">
+                  All the items you selected.
+                </p>
+                {table.getFilteredSelectedRowModel().rows.length > 0 ? (
+             
+             table.getFilteredSelectedRowModel().rows.map((row) => (
+                <ul
+                  key={row.id}
+                  data-state={row.getIsSelected() && "selected"}
+                  className="max-h-64 overflow-y-auto"
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <li key={cell.id}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+
+                    </li>
+                  ))}
+                </ul>
+              ))
+              
+            ) : (
+              <p>No items selected.</p>
+            )}
+            <Button disabled={table.getFilteredSelectedRowModel().rows.length ===0} onClick={addSelectedItemsToCart}>Add to shopping list</Button>
+              </div>
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
       <div className="rounded-md border">
         <Table>
